@@ -1,0 +1,61 @@
+<odoo>
+    <report id="report_programme" model="programme.programme" string="Générer le PTA" name="programme.report_programme_view" file="programme.report_programme" report_type="qweb-pdf" />
+    <template id="report_programme_view">
+        <t t-call="web.html_container">
+            <div class="page ">
+                <div class="article o_report_layout_standard">
+                    <h2 style="text-align: center;margin-buttom: 10%;"> Le PTA du MEFPAI </h2>
+                    <table style="width:100%;border-spacing:0px;">
+                        <t t-foreach="docs" t-as="doc">
+                            <tr style="border:1px solid black;">
+                                <td style="background-color: #3498db;text-align: center; border:1px solid black;">
+                                    <span t-esc="doc['name']"></span>
+                                </td>
+                                <td>
+                                    <table style="width:100%;border-spacing:0px;">
+                                        <tbody>
+                                            <t t-foreach="doc['objectif_ids']" t-as="obj">
+                                                <tr>
+                                                    <td style="text-align: center; border:1px solid black;">
+                                                        <span t-esc="obj['name']"></span>
+                                                    </td>
+                                                    <td style="text-align: center; border:1px solid black;">
+                                                        <table style="width:100%;border-spacing:0px;">
+                                                            <tbody>
+                                                                <t t-foreach="obj['action_ids']" t-as="act">
+                                                                    <tr>
+                                                                        <td style="border:1px solid black;">
+                                                                            <span t-esc="act['name']"></span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <table style="width:100%;border-spacing:0px;">
+                                                                                <tbody>
+                                                                                    <t t-foreach="act['resultat_ids']" t-as="res">
+                                                                                        <tr>
+                                                                                            <td style="border-bottom:1px solid black;">
+                                                                                                <span t-esc="res['name']"></span>
+
+                                                                                            </td>
+                                                                                        </tr>
+                                                                                    </t>
+                                                                                </tbody>
+                                                                            </table>
+                                                                        </td>
+                                                                    </tr>
+                                                                </t>
+                                                            </tbody>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </t>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                        </t>
+                    </table>
+                </div>
+            </div>
+        </t>
+    </template>
+</odoo>

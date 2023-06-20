@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="project_service_view_form" model="ir.ui.view">
+        <field name="name">programme.service.view.form</field>
+        <field name="model">programme.service</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <h1> Ajouter un nouveau Service </h1>
+                    <group>
+                        <group>
+                            <field name="name" />
+                            <field name="lib_service" />
+                            <field name="tutelle_id" />
+                        </group>
+                        <group>
+                            <field name="divisions_ids" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="programme_service_view_tree" model="ir.ui.view">
+        <field name="name">programme.service.view.tree</field>
+        <field name="model">programme.service</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="lib_service" />
+                <field name="tutelle_id" />
+            </tree>
+        </field>
+    </record>
+    <!--  action-->
+    <record id="programme_service_actiom" model="ir.actions.act_window">
+        <field name="name">Service</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">programme.service</field>
+        <!-- <field name="view_type">form</field> -->
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- La classe Tutelle-->
+    <!-- View forme Tutelle-->
+    <record id="programme_tutelle_view_form" model="ir.ui.view">
+        <field name="name">programme.tutelle.view.form</field>
+        <field name="model">programme.tutelle</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <h1> Ajouter un nouveau Tutelle</h1>
+                    <goup>
+                        <group>
+                            <field name="name" />
+                            <field name="libelle_tutelle" />
+                        </group>
+                        <group>
+                            <field name="service_ids" />
+                        </group>
+                    </goup>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- view tree Tutelle-->
+    <record id="programme_tutelle_view_tree" model="ir.ui.view">
+        <field name="name">programme.tutelle.view.tree</field>
+        <field name="model">programme.tutelle</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="libelle_tutelle" />
+                <field name="service_ids" />
+            </tree>
+        </field>
+    </record>
+    <!--  actions Tutelle-->
+    <record id="programme_tutelle_actiom" model="ir.actions.act_window">
+        <field name="name">Tutelle</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">programme.tutelle</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Les Menus-->
+    <menuitem name="Programme" id="prog_root" />
+    <menuitem name="Services" id="id_services" parent="prog_root" />
+    <menuitem name="Liste des Tutelle" id="menu_tutelle" parent="id_services" action="programme_tutelle_actiom" sequence="1" />
+    <menuitem name="Liste des Services" id="menu_service" parent="id_services" action="programme_service_actiom" sequence="2" />
+
+
+</odoo>

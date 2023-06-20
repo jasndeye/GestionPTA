@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="utilisateur_view_form" model="ir.ui.view">
+        <field name="name">users.view.form</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"></field>
+        <field name="arch" type="xml">
+            <field name="login" position="after">
+            <br/><label for="matricule" string="Matricule"/>
+                <field name="matricule"/>
+            </field>
+        </field>
+    </record>
+    <!-- <record id="programme_tutelle_view_tree" model="ir.ui.view">
+        <field name="name">programme.tutelle.view.tree</field>
+        <field name="model">programme.tutelle</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="libelle_tutelle" />
+                <field name="service_ids" />
+            </tree>
+        </field>
+    </record> -->
+
+</odoo>

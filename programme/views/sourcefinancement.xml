@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="project_sourcefinancement_view_form" model="ir.ui.view">
+        <field name="name">programme.sourcefinancement.view.form</field>
+        <field name="model">programme.sourcefinancement</field>
+        <field name="arch" type="xml">
+            <form>
+            <sheet>
+                <h1> Ajouter une nouvelle Source de financement </h1>
+                <group>
+                    <group>
+                    <group>
+                        <field name="name" />
+                        <field name="budget" readonly="1" force_save="1"/>
+                        <field name="type_financement" />
+                    </group>
+                    <group>
+                        <field name="nature_economique_ids" widget="many2many_checkboxes" />
+                    </group></group>
+                    <group>
+                        <field name="activites_id" >
+                            <tree>
+                                <field name="name" />
+                                <field name="cout_activite" readonly="1" force_save="1"/>
+                            </tree>
+                        </field>
+                    </group>
+                </group>
+            </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="programme_sourcefinancement_view_tree" model="ir.ui.view">
+        <field name="name">programme.sourcefinancement.view.tree</field>
+        <field name="model">programme.sourcefinancement</field>
+        <field name="arch" type="xml">
+            <tree decoration-bf="True" decoration-success="type_financement=='interne'">
+                <field name="name" />
+                <field name="budget" />
+                <field name="type_financement" />
+                <field name="activites_id" />
+            </tree>
+        </field>
+    </record>
+    <!--    la vue graph -->
+  <record model="ir.ui.view" id="sourcefinancement_graph_view">
+    <field name="name">programme.sourcefinancement.graph</field>
+    <field name="model">programme.sourcefinancement</field>
+    <field name="arch" type="xml">
+      <graph string="Répartition des sourcefinancement">
+        <field name="name" />
+        <field name="type_financement" />
+      </graph>
+    </field>
+  </record>
+    <!--  action-->
+    <record id="programme_sourcefinancement_actiom" model="ir.actions.act_window">
+        <field name="name">sourcefinancement</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">programme.sourcefinancement</field>
+        <!-- <field name="view_type">form</field> -->
+        <field name="view_mode">tree,graph,form</field>
+    </record>
+
+    <!-- La classe natureeconomique-->
+    <!-- View forme natureeconomique-->
+    <record id="programme_natureeconomique_view_form" model="ir.ui.view">
+        <field name="name">programme.natureeconomique.view.form</field>
+        <field name="model">programme.natureeconomique</field>
+        <field name="arch" type="xml">
+            <form>
+            <sheet>
+                <h1> Ajouter une nouvelle natureeconomique</h1>
+                <goup>
+                    <group>
+                        <sheet>
+                        <group>
+                            <field name="name" />
+                        </group>
+                    </sheet>
+                    </group>
+                </goup>
+            </sheet>
+            </form>
+        </field>
+    </record> 
+
+    <!-- view tree Natureeconomique-->
+    <!-- <record id="programme_natureeconomique_view_tree" model="ir.ui.view">
+        <field name="name">programme.natureeconomique.view.tree</field>
+        <field name="model">programme.natureeconomique</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="source_financement_ids" />
+            </tree>
+        </field>
+    </record> -->
+    <!--  actions Natureeconomique-->
+    <record id="programme_natureeconomique_actiom" model="ir.actions.act_window">
+        <field name="name">Natureeconomique</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">programme.natureeconomique</field>
+       
+        <field name="view_mode">form</field>
+    </record>
+
+    <!-- Les Menus-->
+    <menuitem name="Programme" id="prog_root" />
+    <menuitem name="Information Budget" id="id_budget" parent="prog_root" />
+    <menuitem name="Les Sources de financement" id="menu_sourcefinancement" parent="id_budget" action="programme_sourcefinancement_actiom" />
+    <menuitem name="Les Natureeconomique" id="menu_natureeconomique" parent="id_budget" action="programme_natureeconomique_actiom" sequence="2" />
+</odoo>

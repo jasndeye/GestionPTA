@@ -1,0 +1,34 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_programme_programme,access programme mefpai,model_programme_programme,programme.group_user,1,1,1,1
+access_programme_programme,access programme mefpai,model_programme_programme,programme.user_group_manager,1,1,1,1
+access_programme_objectif,access objectif du programme mefpai,model_programme_objectif,programme.group_user,1,0,0,1
+access_programme_objectif,access objectif du programme mefpai,model_programme_objectif,programme.user_group_manager,1,1,1,1
+
+access_programme_action,access action mefpai,model_programme_action,programme.group_user,1,1,0,0
+access_programme_action,access action mefpai,model_programme_action,programme.user_group_manager,1,1,1,1
+access_programme_resultat,access resultat du programme mefpai,model_programme_resultat,programme.group_user,1,1,0,0
+access_programme_resultat,access resultat du programme mefpai,model_programme_resultat,programme.user_group_manager,1,1,1,1
+
+access_programme_activite,access activite mefpai,model_programme_activite,programme.group_user,1,0,0,1
+access_programme_activite,access activite mefpai,model_programme_activite,programme.user_group_manager,1,1,1,1
+access_programme_sousactivite,access sousactivite du programme mefpai,model_programme_sousactivite,programme.group_user,1,1,0,0
+access_programme_sousactivite,access sousactivite du programme mefpai,model_programme_sousactivite,programme.user_group_manager,1,1,1,1
+
+access_programme_sourcefinancement,access sourcefinancement mefpai,model_programme_sourcefinancement,programme.group_user,1,1,0,0
+access_programme_sourcefinancement,access sourcefinancement mefpai,model_programme_sourcefinancement,programme.user_group_manager,1,1,1,1
+access_programme_natureeconomique,access natureeconomique du programme mefpai,model_programme_natureeconomique,programme.group_user,1,1,0,0
+access_programme_natureeconomique,access natureeconomique du programme mefpai,model_programme_natureeconomique,programme.user_group_manager,1,1,1,1
+
+access_programme_service,access service mefpai,model_programme_service,programme.group_user,1,1,0,0
+access_programme_service,access service mefpai,model_programme_service,programme.user_group_manager,1,1,1,1
+access_programme_division,access division mefpai,model_programme_division,programme.group_user,1,1,0,0
+access_programme_division,access division mefpai,model_programme_division,programme.user_group_manager,1,1,1,1
+access_programme_tutelle,access tutelle du programme mefpai,model_programme_tutelle,programme.group_user,1,1,0,0
+access_programme_tutelle,access tutelle du programme mefpai,model_programme_tutelle,programme.user_group_manager,1,1,1,1
+
+
+access_programme_activite_responsable,access responsable activite mefpai,model_programme_activite,programme.activite_group_manager,1,1,0,0
+access_programme_sousactivite_responsable,access responsable sousactivite du programme mefpai,model_programme_sousactivite,programme.activite_group_manager,1,1,1,1
+access_programme_sourcefinancement_responsable,access responsable sourcefinancement activite mefpai,model_programme_sourcefinancement,programme.activite_group_manager,1,0,0,0
+access_programme_resultat_responsable,access responsable resultat du programme mefpai,model_programme_resultat,programme.activite_group_manager,1,0,0,0
